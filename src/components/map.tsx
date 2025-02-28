@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { MapContainer, TileLayer, Marker, useMapEvents, useMap } from 'react-leaflet';
 import { Icon, LeafletMouseEvent } from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 
 //Defino esta funcion para poder usar un marcador en el mapa 
 function MapMarker({ position, setPosition }: {
