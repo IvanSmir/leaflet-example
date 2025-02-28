@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { MapContainer, TileLayer, Marker, useMapEvents, useMap } from 'react-leaflet';
-import { Icon } from 'leaflet';
+import { Icon, LeafletMouseEvent } from 'leaflet';
 
 //Defino esta funcion para poder usar un marcador en el mapa 
 function MapMarker({ position, setPosition }: {
@@ -11,7 +11,7 @@ function MapMarker({ position, setPosition }: {
 }) {
     //aca podes user el hook de useMapEvents para agregar eventos al mapa como el click para poder obtener las coordenadas
     useMapEvents({
-        click(e) {
+        click(e: LeafletMouseEvent) {
             setPosition([e.latlng.lat, e.latlng.lng]);
         },
     });
@@ -40,7 +40,7 @@ export default function Map() {
     const [isCopied, setIsCopied] = useState(false);
 
     //aca puse el centro en encarnacion
-    const defaultCenter: [number, number] = [-27.33056, -55.86667];
+    const defaultCenter: [number, number] = [-27.30721549485561, -55.887404976642095];
 
     const copyToClipboard = () => {
         if (!position) return;
